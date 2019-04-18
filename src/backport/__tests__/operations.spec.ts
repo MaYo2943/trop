@@ -28,6 +28,7 @@ describe('runner', () => {
       const dir = saveDir(await initRepo({
         owner: 'electron',
         repo: 'trop',
+        accessToken: '',
       }));
       expect(await fs.pathExists(dir)).toBe(true);
       expect(await fs.pathExists(path.resolve(dir, '.git'))).toBe(true);
@@ -37,6 +38,7 @@ describe('runner', () => {
       await expect(initRepo({
         owner: 'electron',
         repo: 'this-is-not-trop',
+        accessToken: '',
       })).rejects.toBeTruthy();
     });
   });
