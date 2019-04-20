@@ -372,6 +372,7 @@ please check out #${pr.number}`;
 
   await labelUtils.removeLabel(context, oldPRNumber, labelToRemove);
   await labelUtils.addLabel(context, oldPRNumber, [labelToAdd]);
+  await labelUtils.addLabel(context, pr.number, ['backport', pr.base.ref]);
 };
 
 export const backportToLabel = async (
